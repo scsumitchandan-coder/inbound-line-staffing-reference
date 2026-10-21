@@ -1,0 +1,30 @@
+artifacts = ["/app/planner.py"]
+
+schema_version = "2.0"
+
+[task]
+name = "insight/inbound-line-staffing"
+description = "Write a staffing planner for inbound customer lines: from eight weeks of a line's call records, logged-in agents and contract service standard, return the fewest agents per half hour of a plan date that meet the standard, working forward through the day. The planner is graded on lines generated for each submission (records shaped by an understaffed old roster, repeat attempts, withheld numbers, queue-dependent handle times, clock changes and changes during the records) against the true requirement and sound planning methods."
+
+# Required by the TB-Science static check.
+[metadata]
+domain = "mathematical-sciences"
+field = "operations-research"
+subfield = "queueing and workforce management; contact-centre staffing under abandonment and retrials, with model estimation from operational records shaped by the policy in force"
+tags = ["operations-research", "queueing", "workforce-management", "staffing", "abandonment", "retrials", "simulation", "service-level", "estimation", "contact-centre"]
+expert_time_estimate_hours = 12
+relevant_experience = "Several years as a workforce-management analyst or operations-research developer for contact centres: estimating arrival, patience, retrial and handle-time behaviour from switch records, building simulation-based staffing requirements under abandonment and redials, and knowing how service-level definitions differ between contracts and planning tools."
+
+[verifier]
+timeout_sec = 7200.0
+environment_mode = "separate"
+
+[agent]
+timeout_sec = 28800.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 8192
+gpus = 0

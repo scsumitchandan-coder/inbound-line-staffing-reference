@@ -1,0 +1,7 @@
+We are replacing the rosters our workforce team drew up with its old engine. For each inbound line the planners need the number of agents to log in for every half hour of the line's plan date, and they want a planner they can run on any line's folder rather than a one-off answer.
+
+Write `/app/planner.py` with a function `plan(line_dir)`. It reads one line's folder, laid out as `/app/README.md` describes, and returns a list of whole numbers, one per half hour from opening time. Each number is the fewest agents that meets the line's service standard in that half hour, working forward through the day: a half hour's number is the smallest that meets the standard given your numbers for the half hours before it. `/app/README.md` says what is known about the lines and how the contract measures the service level.
+
+Only `/app/planner.py` is carried to the grader. There it is run on several lines you have not seen, each with up to 20 minutes and 2 CPU cores, as an ordinary user without network access, with `/app` as its working directory; it can write only to its home and temporary folders. `/app/engine/` is present there as it is here, and so are numpy, pandas and scipy. A number is accepted when it lies in the range spanned by the line's true requirement and by what sound planning methods make of the same records, widened by one agent either way. Every half hour of every line has to be accepted.
+
+`/app/practice/` is one line to try the planner on. Nothing about its answer is supplied.
